@@ -29,7 +29,7 @@ public class TicTacToe  {
                 }else {
                     player = (player == 'X') ? 'O' : 'X';
                 }
-                printBoard();
+                printBoard(row, col, board);
             } else {
                 errorOccured = true;
                 break;
@@ -40,9 +40,15 @@ public class TicTacToe  {
         }
     }
 
-    private static void printBoard() {
+    private static void printBoard(int row, int col, char[][] board) {
+        for(int i = 0; i < row; i++) {
+            for(int j=0; j < col; j++) {
+                System.out.print(board[i][j] + " | ");
+            }
+            System.out.println();
+        }
     }
-
     private static boolean checkWin(char player) {
+        return false;
     }
 }
