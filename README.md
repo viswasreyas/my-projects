@@ -1,1 +1,1 @@
-# tic-tac-toe
+# my-projects
