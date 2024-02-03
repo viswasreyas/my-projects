@@ -24,7 +24,7 @@ public class TicTacToe  {
 
             if(rowNum < row && colNum < col && board[rowNum][colNum] == ' '){
                 board[rowNum][colNum] = player;
-                if(checkWin(player)) {
+                if(checkWin(row, col, player, board)) {
                     isGameOver = true;
                 }else {
                     player = (player == 'X') ? 'O' : 'X';
@@ -34,6 +34,9 @@ public class TicTacToe  {
                 errorOccured = true;
                 break;
             }
+        }
+        if(errorOccured) {
+            System.out.println("Invalid input. Try again!");
         }
         if(isGameOver) {
             System.out.println("Player " + player + " won!");
@@ -48,7 +51,23 @@ public class TicTacToe  {
             System.out.println();
         }
     }
-    private static boolean checkWin(char player) {
+    private static boolean checkWin(int row, int col, char player, char[][] board) {
+        for(int i = 0; i < row; i++) {
+            if (board[i][0] == player && board[i][1] == player && board[i][2] == player){
+                return true;
+            }
+        }
+        for(int j=0; j < col; j++) {
+            if (board[0][j] == player && board[1][j] == player && board[2][j] == player){
+                return true;
+            }
+        }
+        if(board[0][0] == player && board[1][1] == player && board[2][2] == player){
+            return true;
+        }
+        if(board[0][2] == player && board[1][1] == player && board[2][0] == player){
+            return true;
+        }
         return false;
     }
 }
