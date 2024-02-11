@@ -1,7 +1,7 @@
 public class PatternPrinting {
     public static void main(String[] args) {
         int n = 5;
-        printPattern1(n);
+        printPattern3(n);
     }
 /*
  *
@@ -44,6 +44,30 @@ public class PatternPrinting {
             }
             for (int i = 0; i < patternPerRow; i++) {
                 System.out.print("* ");
+            }
+            System.out.println();
+        }
+    }
+
+    /*
+    	 1
+	   2 1 2
+     3 2 1 2 3
+   4 3 2 1 2 3 4
+ 5 4 3 2 1 2 3 4 5
+     */
+    private static void printPattern3(int n) {
+        for (int row = 1; row <= n; row++) {
+            int noOfSpaces = n - row;
+
+            for (int i = 0; i < noOfSpaces ; i++) {
+                System.out.print("  ");
+            }
+            for (int col = row; col >= 1 ; col--) {
+                System.out.print(col + " ");
+            }
+            for (int col = 2 ; col <= row ; col++) {
+                System.out.print(col + " ");
             }
             System.out.println();
         }
